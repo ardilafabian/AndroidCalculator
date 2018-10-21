@@ -161,6 +161,39 @@ public class CalculatorActivity extends AppCompatActivity {
         operation = 7;
     }
 
+    public void actionBtFact (View v) {
+        try {
+            String numOnScreen = display.getText().toString();
+            num1 = Double.parseDouble(numOnScreen);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+        display.setText(num1 + "!");
+        operation = 8;
+    }
+
+    public void actionBtPower (View v) {
+        try {
+            String numOnScreen = display.getText().toString();
+            num1 = Double.parseDouble(numOnScreen);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+        display.setText("");
+        operation = 9;
+    }
+
+    public void actionBtRoot (View v) {
+        try {
+            String numOnScreen = display.getText().toString();
+            num1 = Double.parseDouble(numOnScreen);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+        display.setText("√(" + num1 + ")");
+        operation = 10;
+    }
+
     public void actionBtAc (View v) {
         display.setText("");
         num1 = 0.0;
@@ -204,6 +237,15 @@ public class CalculatorActivity extends AppCompatActivity {
         } else if (operation == 7) {
             double radians = Math.toRadians(num1);
             res = Math.tan(radians);
+        } else if (operation == 8) {
+            res = 1;
+            for (Double i = num1; i >= 1; i--) {
+                res = res * i;
+            }
+        } else if (operation == 9) {
+            res = Math.pow(num1, num2);
+        } else if (operation == 10) {
+            res = Math.sqrt(num1);
         }
         display.setText("" + res);
         num1 = res;

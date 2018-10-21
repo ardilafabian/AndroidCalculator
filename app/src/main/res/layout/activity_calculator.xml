@@ -57,6 +57,36 @@
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/btfact"
+                style="@android:style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="actionBtFact"
+                android:text="X!" />
+
+            <Button
+                android:id="@+id/btpwr"
+                style="@android:style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="actionBtPower"
+                android:text="X^Y" />
+
+            <Button
+                android:id="@+id/btroot"
+                style="@android:style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="actionBtRoot"
+                android:text="√X" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
                 android:id="@+id/btsin"
                 style="@android:style/Widget.Button"
                 android:layout_width="wrap_content"
