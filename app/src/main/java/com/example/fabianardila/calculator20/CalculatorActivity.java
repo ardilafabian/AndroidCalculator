@@ -128,6 +128,52 @@ public class CalculatorActivity extends AppCompatActivity {
         operation = 4;
     }
 
+    public void  actionBtSin (View v) {
+        try {
+            String numOnScreen = display.getText().toString();
+            num1 = Double.parseDouble(numOnScreen);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+        display.setText("Sin(" + num1 + ")");
+        operation = 5;
+    }
+
+    public void  actionBtCos (View v) {
+        try {
+            String numOnScreen = display.getText().toString();
+            num1 = Double.parseDouble(numOnScreen);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+        display.setText("Cos(" + num1 + ")");
+        operation = 6;
+    }
+
+    public void  actionBtTan (View v) {
+        try {
+            String numOnScreen = display.getText().toString();
+            num1 = Double.parseDouble(numOnScreen);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+        display.setText("Tan(" + num1 + ")");
+        operation = 7;
+    }
+
+    public void actionBtAc (View v) {
+        display.setText("");
+        num1 = 0.0;
+        num2 = 0.0;
+        res = 0.0;
+    }
+
+    public void actionBtDel (View v) {
+        if (!display.getText().toString().equals("")) {
+            display.setText(display.getText().subSequence(0, display.getText().length() - 1));
+        }
+    }
+
     public void actionBtEqual (View v) {
         try {
             String numOnScreen2 = display.getText().toString();
@@ -149,6 +195,15 @@ public class CalculatorActivity extends AppCompatActivity {
             } else {
                 res = num1/num2;
             }
+        } else if (operation == 5) {
+            double radians = Math.toRadians(num1);
+            res = Math.sin(radians);
+        } else if (operation == 6) {
+            double radians = Math.toRadians(num1);
+            res = Math.cos(radians);
+        } else if (operation == 7) {
+            double radians = Math.toRadians(num1);
+            res = Math.tan(radians);
         }
         display.setText("" + res);
         num1 = res;
